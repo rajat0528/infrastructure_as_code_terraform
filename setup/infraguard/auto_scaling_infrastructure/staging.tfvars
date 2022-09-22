@@ -23,3 +23,29 @@ vpc_configurations              =   {
         }
     ]
 }
+
+# Subnet configurations
+subnet_configurations           =   {
+    public_subnets      =   {
+        cidr_block                  =   ["172.30.0.0/28","172.30.0.16/28"]
+        availability_zone           =   ["ap-southeast-1a","ap-southeast-1b"]
+        map_public_ip_on_launch     =   [true,true]
+        tags                        =   [
+            {
+                Name        =   "subnet-staging-public"
+                Envrionment =   "staging"
+            }
+        ]
+    },
+    private_subnets      =   {
+        cidr_block                  =   ["172.30.0.32/28","172.30.0.48/28"]
+        availability_zone           =   ["ap-southeast-1a","ap-southeast-1b"]
+        map_public_ip_on_launch     =   [false,false]
+        tags                        =   [
+            {
+                Name        =   "subnet-staging-private"
+                Envrionment =   "staging"
+            }
+        ]
+    }
+}

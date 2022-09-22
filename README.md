@@ -24,9 +24,12 @@ terraform apply -auto-approve
 terraform output
 
 # Destroy previously-created infrastructure (Staging environment)
-terraform destroy -var-file=staging.tfvars
+terraform destroy -var-file=staging.tfvars -auto-approve
 
 ## Module wise commands (Staging environment)
 
 # VPC
-terraform plan -target=module.vpc_module -var-file=staging.tfvars && terraform apply -var-file=staging.tfvars
+terraform plan -target=module.vpc_module -var-file=staging.tfvars && terraform apply -var-file=staging.tfvars -auto-approve
+
+# Subnet
+terraform plan -target=module.subnet_module -var-file=staging.tfvars && terraform apply -var-file=staging.tfvars

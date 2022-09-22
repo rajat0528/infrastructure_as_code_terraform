@@ -56,3 +56,21 @@ variable "vpc_configurations" {
                     })
     description =   "Amazon Virtual Private Cloud (Amazon VPC) configurations."
 }
+
+variable "subnet_configurations" {
+    type        =   object({
+                        public_subnets  =   object({
+                            cidr_block                  =   list(any)
+                            availability_zone           =   list(any)
+                            map_public_ip_on_launch     =   list(any)
+                            tags                        =   list(map(any))
+                        })
+                        private_subnets  =   object({
+                            cidr_block                  =   list(any)
+                            availability_zone           =   list(any)
+                            map_public_ip_on_launch     =   list(any)
+                            tags                        =   list(map(any))
+                        })
+                    })
+    description =   "Subnets configurations."
+}
